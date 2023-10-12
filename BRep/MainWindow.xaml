@@ -1,0 +1,82 @@
+﻿<Window x:Class="BRep.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        FontFamily="Microsoft YaHei UI"
+        Title="B-Rep Model Viewer"
+        MinHeight="480" MinWidth="640"
+        Height="480" Width="640">
+    <Grid x:Name="Display" Background="LightGray"
+          MouseDown="Display_OnMouseDown"
+          MouseUp="Display_OnMouseUp"
+          MouseWheel="Display_OnMouseWheel"
+          MouseMove="Display_OnMouseMove">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="0" FontSize="18">
+            <MenuItem Header="File" Margin="5,0,0,0" Padding="15,0">
+                <MenuItem Header="About" Padding="0,5"
+                          Click="AboutMenu_OnClick" />
+                <MenuItem Header="Help" Padding="0,5"
+                          Click="HelpMenu_OnClick" />
+                <Separator />
+                <MenuItem Header="Exit" Padding="0,5"
+                          Click="ExitMenu_OnClick" />
+            </MenuItem>
+            <MenuItem Header="Load" Padding="15,0">
+                <MenuItem Header="Default Model" Padding="0,5"
+                          Click="LoadDefaultButton_OnClick" />
+                <MenuItem Header="From File..." Padding="0,5"
+                          Click="LoadButton_OnClick" />
+            </MenuItem>
+        </Menu>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Background="AliceBlue">
+            <Button Margin="10,5" Padding="10,5" FontSize="16" Content="Reset View"
+                    Click="ResetButton_OnClick" />
+            <Button Margin="10,5" Padding="10,5" FontSize="16" Content="Change Color"
+                    Click="ChangeColorButton_OnClick" />
+            <StackPanel Orientation="Horizontal">
+                <Label VerticalAlignment="Center">Enable Muti-color</Label>
+                <CheckBox IsChecked="True" VerticalAlignment="Center"
+                          Checked="ToggleButton_OnChecked"
+                          Unchecked="ToggleButton_OnUnchecked" />
+            </StackPanel>
+        </StackPanel>
+
+
+        <Viewport3D x:Name="Viewport" Grid.Row="2">
+            <Viewport3D.Camera>
+                <PerspectiveCamera
+                    x:Name="Camera"
+                    FarPlaneDistance="50"
+                    NearPlaneDistance="0"
+                    LookDirection="0,0,-10"
+                    UpDirection="0,1,0"
+                    Position="0,0,5"
+                    FieldOfView="45" />
+            </Viewport3D.Camera>
+
+            <ModelVisual3D x:Name="Model">
+                <ModelVisual3D.Content>
+                    <Model3DGroup x:Name="Group">
+                        <AmbientLight Color="DarkGray" />
+                        <DirectionalLight Color="Gray" Direction="-1,-1,-1" />
+                    </Model3DGroup>
+                </ModelVisual3D.Content>
+            </ModelVisual3D>
+        </Viewport3D>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Background="AliceBlue">
+            <Label Padding="5" FontSize="14" Content="Model Name:" />
+            <Label x:Name="ModelName" Padding="0,5,5,5" FontSize="14" Content="Default Model" />
+        </StackPanel>
+    </Grid>
+</Window>

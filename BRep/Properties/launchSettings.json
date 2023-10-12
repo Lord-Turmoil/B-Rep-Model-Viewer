@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "BRep": {
+      "commandName": "Project",
+      "workingDirectory": "F:\\Development\\Exercise\\C#\\BRep\\BRep\\Work"
+    }
+  }
+}

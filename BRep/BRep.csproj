@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net6.0-windows7.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <UseWPF>true</UseWPF>
+        <Title>B-Rep Model Viewer</Title>
+        <Authors>Tony Skywalker</Authors>
+        <Company>Tony's Studio</Company>
+        <Product>B-Rep Model Viewer</Product>
+        <Description>B-Rep Model Viewer</Description>
+        <Copyright>Copyright © Tony's Studio 2023</Copyright>
+        <AssemblyName>B-Rep Model Viewer</AssemblyName>
+        <LangVersion>default</LangVersion>
+        <PackageIcon></PackageIcon>
+        <ApplicationIcon>icon.ico</ApplicationIcon>
+        <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <FileVersion>1.0.2.1</FileVersion>
+        <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+        <RepositoryUrl>https://github.com/Lord-Turmoil/B-Rep-Model-Viewer</RepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Content Include="icon.ico" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Update="icon.png">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
+
+    <ProjectExtensions>
+        <VisualStudio>
+            <UserProperties work_4stair_1json__JsonSchema="https://json-schema.org/draft-04/schema" />
+        </VisualStudio>
+    </ProjectExtensions>
+
+</Project>
